@@ -14,7 +14,7 @@ let revealTimeout = null;
 let originalText = '';
 
 // API Configuration
-const API_BASE_URL = 'http://localhost:8009'; // Change according to your backend
+const API_BASE_URL = 'http://localhost:8010'; // Backend API URL
 
 // Get text ID from URL
 function getTextId() {
