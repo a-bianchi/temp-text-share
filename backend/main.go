@@ -199,8 +199,24 @@ func startServer() {
 
 	// CORS middleware for cross-origin requests
 	router.Use(func(c *gin.Context) {
+		// Get the origin from the request
+		origin := c.Request.Header.Get("Origin")
+
 		// Allow specific origins (frontend)
-		c.Header("Access-Control-Allow-Origin", "http://localhost:3001")
+		allowedOrigins := []string{
+			"http://localhost:3001",
+			"http://192.168.88.252:3001",
+			"http://192.168.88.252:3000",
+		}
+
+		// Check if origin is allowed
+		for _, allowed := range allowedOrigins {
+			if origin == allowed {
+				c.Header("Access-Control-Allow-Origin", origin)
+				break
+			}
+		}
+
 		c.Header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE")
 		c.Header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With")
 		c.Header("Access-Control-Allow-Credentials", "true")
