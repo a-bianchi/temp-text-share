@@ -1,154 +1,154 @@
 # 🚀 Text Share App - Docker Edition
 
-Una aplicación completa para compartir texto temporalmente con backend en Go, frontend en HTML/CSS/JS, y base de datos Redis, todo containerizado con Docker.
+A complete application for temporarily sharing text with Go backend, HTML/CSS/JS frontend, and Redis database, all containerized with Docker.
 
-## 🏗️ Arquitectura
+## 🏗️ Architecture
 
-- **Frontend**: Aplicación web estática servida por Nginx
-- **Backend**: API REST en Go con Gin framework
-- **Base de Datos**: Redis para almacenamiento temporal
-- **Containers**: Docker con docker-compose para orquestación
+- **Frontend**: Static web application served by Nginx
+- **Backend**: REST API in Go with Gin framework
+- **Database**: Redis for temporary storage
+- **Containers**: Docker with docker-compose for orchestration
 
-## 📋 Prerrequisitos
+## 📋 Prerequisites
 
-- Docker Desktop instalado y ejecutándose
-- docker-compose disponible
-- curl (para health checks)
+- Docker Desktop installed and running
+- docker-compose available
+- curl (for health checks)
 
-## 🚀 Inicio Rápido
+## 🚀 Quick Start
 
-### Opción 1: Inicio Completo (Recomendado)
+### Option 1: Complete Startup (Recommended)
 ```bash
-# Desde el directorio raíz del proyecto
+# From the project root directory
 chmod +x start-app.sh
 ./start-app.sh
 ```
 
-### Opción 2: Inicio Manual
+### Option 2: Manual Startup
 ```bash
-# Construir y levantar todos los servicios
+# Build and start all services
 docker-compose up --build -d
 
-# Verificar el estado
+# Check status
 docker-compose ps
 ```
 
-### Opción 3: Modo Desarrollo
+### Option 3: Development Mode
 ```bash
 chmod +x dev-start.sh
 ./dev-start.sh
 ```
 
-## 🌐 URLs de Acceso
+## 🌐 Access URLs
 
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:8009
 - **Redis**: localhost:6379
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 temp-text-share/
-├── frontend/                 # Frontend estático
-│   ├── Dockerfile           # Imagen del frontend
-│   ├── nginx.conf           # Configuración de Nginx
-│   ├── build-frontend.sh    # Script de build
-│   └── .dockerignore        # Archivos a ignorar en Docker
-├── backend/                  # API en Go
-│   ├── Dockerfile           # Imagen del backend
-│   ├── main.go              # Código principal
-│   ├── auto-restart.sh      # Monitoreo automático
-│   └── restart-server.sh    # Reinicio manual
-├── docker-compose.yml       # Orquestación de servicios
-├── start-app.sh             # Script de inicio completo
-├── dev-start.sh             # Script de desarrollo
-└── README.md                # Este archivo
+├── frontend/                 # Static frontend
+│   ├── Dockerfile           # Frontend image
+│   ├── nginx.conf           # Nginx configuration
+│   ├── build-frontend.sh    # Build script
+│   └── .dockerignore        # Files to ignore in Docker
+├── backend/                  # Go API
+│   ├── Dockerfile           # Backend image
+│   ├── main.go              # Main code
+│   ├── auto-restart.sh      # Automatic monitoring
+│   └── restart-server.sh    # Manual restart
+├── docker-compose.yml       # Service orchestration
+├── start-app.sh             # Complete startup script
+├── dev-start.sh             # Development script
+└── README.md                # This file
 ```
 
-## 🔧 Comandos Útiles
+## 🔧 Useful Commands
 
-### Gestión de Servicios
+### Service Management
 ```bash
-# Iniciar servicios
+# Start services
 docker-compose up -d
 
-# Detener servicios
+# Stop services
 docker-compose down
 
-# Reiniciar servicios
+# Restart services
 docker-compose restart
 
-# Ver logs
+# View logs
 docker-compose logs -f [service_name]
 
-# Ver estado
+# Check status
 docker-compose ps
 ```
 
-### Desarrollo
+### Development
 ```bash
-# Rebuild y restart
+# Rebuild and restart
 docker-compose up --build -d
 
-# Solo backend
+# Backend only
 docker-compose up -d redis api
 
-# Solo frontend
+# Frontend only
 docker-compose up -d frontend
 
-# Solo Redis
+# Redis only
 docker-compose up -d redis
 ```
 
-### Monitoreo
+### Monitoring
 ```bash
-# Monitoreo automático del backend
+# Automatic backend monitoring
 cd backend && ./auto-restart.sh
 
-# Build del frontend
+# Frontend build
 cd frontend && ./build-frontend.sh
 ```
 
-## 🚨 Características de Auto-Recovery
+## 🚨 Auto-Recovery Features
 
 ### Backend
-- **Recuperación de pánico**: Captura y maneja errores críticos
-- **Reinicio automático**: Se reinicia ante errores fatales
-- **Límite de reintentos**: Máximo 5 intentos antes de fallar
-- **Health checks**: Verificación automática del estado
+- **Panic recovery**: Captures and handles critical errors
+- **Automatic restart**: Restarts on fatal errors
+- **Retry limit**: Maximum 5 attempts before failing
+- **Health checks**: Automatic status verification
 
 ### Frontend
-- **Health endpoint**: `/health` para monitoreo
-- **Compresión gzip**: Optimización de rendimiento
-- **Cache headers**: Mejora en la experiencia del usuario
-- **Security headers**: Protección básica
+- **Health endpoint**: `/health` for monitoring
+- **Gzip compression**: Performance optimization
+- **Cache headers**: Better user experience
+- **Security headers**: Basic protection
 
 ## 🔍 Troubleshooting
 
-### Problemas Comunes
+### Common Issues
 
-1. **Puertos ocupados**
+1. **Ports in use**
    ```bash
-   # Verificar puertos en uso
+   # Check ports in use
    lsof -i :3000
    lsof -i :8009
    lsof -i :6379
    ```
 
-2. **Servicios no inician**
+2. **Services not starting**
    ```bash
-   # Ver logs de errores
+   # View error logs
    docker-compose logs [service_name]
    
-   # Rebuild completo
+   # Complete rebuild
    docker-compose down
    docker-compose up --build -d
    ```
 
-3. **Frontend no conecta con backend**
-   - Verificar que ambos servicios estén corriendo
-   - Revisar logs del frontend para errores de CORS
-   - Confirmar que la URL del backend sea correcta
+3. **Frontend not connecting to backend**
+   - Verify both services are running
+   - Check frontend logs for CORS errors
+   - Confirm backend URL is correct
 
 ### Health Checks
 ```bash
@@ -162,19 +162,19 @@ curl http://localhost:3000/health
 docker-compose exec redis redis-cli ping
 ```
 
-## 🛠️ Desarrollo
+## 🛠️ Development
 
-### Modificar el Backend
-1. Edita archivos en `backend/`
-2. El Dockerfile se rebuild automáticamente
-3. Usa `docker-compose restart api` para aplicar cambios
+### Modifying Backend
+1. Edit files in `backend/`
+2. Dockerfile rebuilds automatically
+3. Use `docker-compose restart api` to apply changes
 
-### Modificar el Frontend
-1. Edita archivos en `frontend/`
-2. Usa `docker-compose restart frontend` para aplicar cambios
-3. Para cambios en nginx.conf, rebuild completo necesario
+### Modifying Frontend
+1. Edit files in `frontend/`
+2. Use `docker-compose restart frontend` to apply changes
+3. For nginx.conf changes, complete rebuild needed
 
-### Variables de Entorno
+### Environment Variables
 ```bash
 # Backend
 REDIS_HOST=redis
@@ -187,63 +187,63 @@ NGINX_HOST=localhost
 NGINX_PORT=80
 ```
 
-## 📊 Monitoreo y Logs
+## 📊 Monitoring and Logs
 
-### Logs en Tiempo Real
+### Real-time Logs
 ```bash
-# Todos los servicios
+# All services
 docker-compose logs -f
 
-# Servicio específico
+# Specific service
 docker-compose logs -f api
 docker-compose logs -f frontend
 docker-compose logs -f redis
 ```
 
-### Métricas de Salud
-- **Backend**: `/ping` y `/admin/test`
+### Health Metrics
+- **Backend**: `/ping` and `/admin/test`
 - **Frontend**: `/health`
-- **Redis**: Comando `ping` interno
+- **Redis**: Internal `ping` command
 
-## 🚀 Despliegue en Producción
+## 🚀 Production Deployment
 
-### Consideraciones
-1. Cambiar puertos expuestos según necesidades
-2. Configurar variables de entorno apropiadas
-3. Implementar SSL/TLS para HTTPS
-4. Configurar backup de Redis
-5. Monitoreo externo de servicios
+### Considerations
+1. Change exposed ports as needed
+2. Configure appropriate environment variables
+3. Implement SSL/TLS for HTTPS
+4. Configure Redis backup
+5. External service monitoring
 
-### Comandos de Producción
+### Production Commands
 ```bash
-# Modo producción
+# Production mode
 export API_ENV=production
 docker-compose -f docker-compose.yml up -d
 
-# Con variables de entorno
+# With environment file
 docker-compose --env-file .env.prod up -d
 ```
 
-## 🤝 Contribución
+## 🤝 Contributing
 
-1. Fork el proyecto
-2. Crea una rama para tu feature
-3. Commit tus cambios
-4. Push a la rama
-5. Abre un Pull Request
+1. Fork the project
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+This project is under the MIT License. See the `LICENSE` file for more details.
 
-## 🆘 Soporte
+## 🆘 Support
 
-Si encuentras problemas:
-1. Revisa los logs: `docker-compose logs`
-2. Verifica el estado: `docker-compose ps`
-3. Consulta este README
-4. Abre un issue en el repositorio
+If you encounter problems:
+1. Check logs: `docker-compose logs`
+2. Verify status: `docker-compose ps`
+3. Consult this README
+4. Open an issue in the repository
 
 ---
 
-**¡Disfruta compartiendo texto de forma temporal y segura! 🎉**
+**Enjoy sharing text temporarily and securely! 🎉**
