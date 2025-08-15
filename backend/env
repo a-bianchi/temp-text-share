@@ -1,0 +1,7 @@
+# Configuración de Redis
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_PASSWORD=
+
+# Configuración de la API
+API_PORT=8009 

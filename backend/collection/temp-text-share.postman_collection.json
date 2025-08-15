@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "263c073f-c6a4-478a-9f11-8381e0c2172b",
+		"name": "temp-text-share",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4404886"
+	},
+	"item": [
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8009/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8009",
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"content\": \"Your text content here\",\n  \"ttl\": 60\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8009/text",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8009",
+					"path": [
+						"text"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"content\": \"Your text content here\",\n  \"ttl\": 60\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8009/text/qeRTA1g9a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8009",
+					"path": [
+						"text",
+						"qeRTA1g9a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

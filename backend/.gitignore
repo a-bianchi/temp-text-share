@@ -1,0 +1,47 @@
+# Binarios compilados
+main
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Archivos de test
+*.test
+*.out
+
+# Archivos de cobertura
+*.cover
+
+# Archivos de Go
+go.work
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Docker
+.dockerignore
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini 

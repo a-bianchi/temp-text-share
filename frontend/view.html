@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Shared Text</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title" data-i18n="viewTitle">📖 Shared Text</h1>
+            <p class="subtitle" data-i18n="viewSubtitle">View the shared content</p>
+        </header>
+
+        <main class="main-content">
+            <div class="text-container">
+                <div id="loadingState" class="loading-state">
+                    <div class="spinner"></div>
+                    <p data-i18n="loadingText">Loading text...</p>
+                </div>
+
+                <div id="errorState" class="error-state" style="display: none;">
+                    <div class="error-icon">
+                        <img src="image/ahahah.webp" alt="Error" class="error-image">
+                    </div>
+                    <h3 data-i18n="errorLoadingText">Error loading text</h3>
+                    <p id="errorMessage" data-i18n="errorMessage">The text could not be loaded or is no longer available.</p>
+                    <button class="btn btn-primary" onclick="window.location.href='index.html'">
+                        <span class="btn-icon">🏠</span>
+                        <span data-i18n="goHome">Go Home</span>
+                    </button>
+                </div>
+
+                <div id="textContent" class="text-content" style="display: none;">
+                    <div class="text-header">
+                        <div class="text-meta">
+                            <span class="meta-item">
+                                <span class="meta-icon">📅</span>
+                                <span id="createdAt"></span>
+                            </span>
+                            <span class="meta-item">
+                                <span class="meta-icon">⏰</span>
+                                <span id="expiresAt"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="text-body">
+                        <textarea id="textBody" class="text-body-content" readonly></textarea>
+                    </div>
+
+                    <div class="text-actions">
+                        <button class="btn btn-primary" onclick="copyText()">
+                            <span class="btn-icon">📋</span>
+                            <span data-i18n="copyText">Copy Text</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="shareText()">
+                            <span class="btn-icon">📤</span>
+                            <span data-i18n="share">Share</span>
+                        </button>
+                        <button class="btn btn-outline" id="revealBtn" onclick="toggleTextVisibility()">
+                            <span class="btn-icon">👁️</span>
+                            <span data-i18n="revealText">Reveal Text</span>
+                        </button>
+                        <button class="btn btn-outline" onclick="window.location.href='index.html'">
+                            <span class="btn-icon">🏠</span>
+                            <span data-i18n="goHome">Go Home</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3 class="info-title" data-i18n="information">Information</h3>
+                <div class="info-content">
+                    <p data-i18n="infoText1">This text was shared using our text sharing platform.</p>
+                    <p data-i18n="infoText2">If you need to share your own text, visit our main page.</p>
+                    <a href="index.html" class="info-link" data-i18n="shareMyText">Share my text →</a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p data-i18n="footer">&copy; 2024 Text Sharing. Made with ❤️</p>
+        </footer>
+    </div>
+
+    <div id="copyNotification" class="notification">
+        <span class="notification-icon">✅</span>
+        <span class="notification-text" data-i18n="textCopied">Text copied to clipboard</span>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
+    <script src="view-script.js"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="93408556-6d0a-43ba-ad3c-03e007948f15"></script>
+</body>
+</html> 

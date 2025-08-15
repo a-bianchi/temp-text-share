@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Sharing - Send</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title" data-i18n="title">📝 Text Sharing</h1>
+            <p class="subtitle" data-i18n="subtitle">Share text quickly and easily</p>
+        </header>
+
+        <main class="main-content">
+            <div class="form-container">
+                <h2 class="form-title" data-i18n="sendNewText">Send New Text</h2>
+                
+                <form id="textForm" class="text-form">
+                    <div class="form-group">
+                        <label for="content" class="form-label" data-i18n="content">Content *</label>
+                        <textarea 
+                            id="content" 
+                            name="content" 
+                            class="form-textarea"
+                            data-i18n-placeholder="contentPlaceholder"
+                            placeholder="Write your text here..."
+                            rows="10"
+                            minlength="1"
+                            maxlength="10000"
+                            required
+                        ></textarea>
+                        <div class="char-counter">
+                            <span id="charCount">0</span> <span data-i18n="characters">characters</span>
+                        </div>
+                        <div class="validation-messages">
+                            <div class="validation-error" id="minError" style="display: none;">
+                                <span data-i18n="minCharacters">Minimum 1 character required</span>
+                            </div>
+                            <div class="validation-error" id="maxError" style="display: none;">
+                                <span data-i18n="maxCharacters">Maximum 10,000 characters allowed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expiration" class="form-label" data-i18n="expiration">Expiration</label>
+                        <select id="expiration" name="expiration" class="form-select">
+                            <option value="1" data-i18n="oneMinute">1 minute</option>
+                            <option value="15" data-i18n="fifteenMinutes">15 minutes</option>
+                            <option value="60" data-i18n="oneHour">1 hour</option>
+                            <option value="1440" selected data-i18n="twentyFourHours">24 hours</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="btn-icon">📤</span>
+                            <span data-i18n="shareText">Share Text</span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                            <span class="btn-icon">🗑️</span>
+                            <span data-i18n="clear">Clear</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="info-section">
+                <h3 class="info-title" data-i18n="howItWorks">How it works?</h3>
+                <div class="info-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p data-i18n="step1">Write your text in the form</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p data-i18n="step2">Click "Share Text"</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p data-i18n="step3">Get a link to share</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p data-i18n="footer">&copy; 2024 Text Sharing. Made with ❤️</p>
+        </footer>
+    </div>
+
+    <div id="shareModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-i18n="textShared">Text Shared!</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p data-i18n="textSharedSuccess">Your text has been shared successfully. Use the following link:</p>
+                <div class="share-link-container">
+                    <input type="text" id="shareLink" class="share-link-input" readonly>
+                    <button class="btn btn-copy" onclick="copyLink()">
+                        <span class="btn-icon">📋</span>
+                        <span data-i18n="copy">Copy</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal()">
+                    <span data-i18n="close">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="93408556-6d0a-43ba-ad3c-03e007948f15"></script>
+</body>
+</html> 
