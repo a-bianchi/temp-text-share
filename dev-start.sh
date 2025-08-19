@@ -72,22 +72,22 @@ case $choice in
         print_status "Starting Full Stack..."
         docker-compose up --build -d
         print_success "✅ Full stack started!"
-        echo "🌐 Frontend: http://localhost:3001"
-        echo "🔌 Backend: http://localhost:8010"
+        echo "🌐 Frontend: http://192.168.88.252:3001"
+        echo "🔌 Backend: http://192.168.88.252:8010"
         echo "🗄️  Redis: localhost:6379"
         ;;
     2)
         print_status "Starting Backend (Redis + API)..."
         docker-compose up --build -d redis api
         print_success "✅ Backend started!"
-        echo "🔌 Backend: http://localhost:8010"
+        echo "🔌 Backend: http://192.168.88.252:8010"
         echo "🗄️  Redis: localhost:6379"
         ;;
     3)
         print_status "Starting Frontend..."
         docker-compose up --build -d frontend
         print_success "✅ Frontend started!"
-        echo "🌐 Frontend: http://localhost:3001"
+        echo "🌐 Frontend: http://192.168.88.252:3001"
         print_warning "⚠️  Note: Backend API is required for full functionality"
         ;;
     4)

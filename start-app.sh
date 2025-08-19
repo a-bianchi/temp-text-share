@@ -36,8 +36,8 @@ print_header() {
 
 # Configuration
 COMPOSE_FILE="docker-compose.yml"
-BACKEND_URL="http://localhost:8010"
-FRONTEND_URL="http://localhost:3001"
+BACKEND_URL="http://192.168.88.252:8010"
+FRONTEND_URL="http://192.168.88.252:3001"
 REDIS_PORT="6379"
 
 print_header

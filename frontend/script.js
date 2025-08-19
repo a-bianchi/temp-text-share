@@ -6,7 +6,7 @@ const shareModal = document.getElementById('shareModal');
 const shareLink = document.getElementById('shareLink');
 
 // API Configuration
-const API_BASE_URL = 'http://localhost:8010'; // Backend API URL
+const API_BASE_URL = 'http://192.168.88.252:8010'; // Backend API URL
 
 // Real-time character counter and validation
 contentTextarea.addEventListener('input', function() {

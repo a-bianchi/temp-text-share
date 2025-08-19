@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-API_URL="http://localhost:8010"
+API_URL="http://192.168.88.252:8010"
 HEALTH_ENDPOINT="/ping"
 ADMIN_ENDPOINT="/admin/test"
 CHECK_INTERVAL=30  # seconds

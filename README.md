@@ -41,8 +41,8 @@ chmod +x dev-start.sh
 
 ## 🌐 Access URLs
 
-- **Frontend**: http://localhost:3001
-- **Backend API**: http://localhost:8010
+- **Frontend**: http://192.168.88.252:3001
+- **Backend API**: http://192.168.88.252:8010
 - **Redis**: localhost:6379
 
 ## 📁 Project Structure
