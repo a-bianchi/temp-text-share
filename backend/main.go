@@ -207,6 +207,8 @@ func startServer() {
 			"http://localhost:3001",
 			"http://192.168.88.252:3001",
 			"http://192.168.88.252:3000",
+			"https://shared.job-tracking.com",
+			"http://shared.job-tracking.com",
 		}
 
 		// Check if origin is allowed
